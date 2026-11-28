@@ -1,0 +1,32 @@
+name: G1 ACQ SKU 管理
+desc: v7.13.0 五套 SKU 映射模板及本地报告，适用于 Stash
+author: crhywun
+version: 7.13.0
+openUrl: https://one.google.com/g1-sku-report
+
+rules:
+  - AND,((NETWORK,UDP),(DST-PORT,443)),REJECT
+
+http:
+  script:
+    - match: '^https://one\.google\.com/'
+      name: g1-acq-discount
+      type: response
+      require-body: true
+      max-size: 10485760
+      timeout: 20
+    - match: '^https://one\.google\.com/g1-sku-report/?(?:\?.*)?$'
+      name: g1-sku-report-discount
+      type: request
+      require-body: false
+      timeout: 20
+  mitm:
+    - one.google.com
+
+script-providers:
+  g1-acq-discount:
+    url: https://raw.githubusercontent.com/duanxianwp/g1-acq/main/g1-acq-discount.js
+    interval: 86400
+  g1-sku-report-discount:
+    url: https://raw.githubusercontent.com/duanxianwp/g1-acq/main/g1-sku-report-discount.js
+    interval: 86400
