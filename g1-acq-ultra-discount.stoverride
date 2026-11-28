@@ -18,7 +18,7 @@ http:
     - match: '^https://one\.google\.com/g1-sku-report/?(?:\?.*)?$'
       name: g1-sku-report-discount
       type: request
-      require-body: false
+      require-body: true
       timeout: 20
   mitm:
     - one.google.com
