@@ -25,8 +25,8 @@ http:
 
 script-providers:
   g1-acq-discount:
-    url: https://raw.githubusercontent.com/duanxianwp/g1-acq/main/g1-acq-discount.js
+    url: https://cdn.jsdelivr.net/gh/crhywun/g1-acq@v7.13.0/g1-acq-discount.js
     interval: 86400
   g1-sku-report-discount:
-    url: https://raw.githubusercontent.com/duanxianwp/g1-acq/main/g1-sku-report-discount.js
+    url: =https://cdn.jsdelivr.net/gh/crhywun/g1-acq@v7.13.0/g1-sku-report-discount.js
     interval: 86400
